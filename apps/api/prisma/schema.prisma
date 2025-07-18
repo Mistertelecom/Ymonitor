@@ -1,0 +1,447 @@
+// Y Monitor Database Schema
+// Based on LibreNMS structure but modernized for PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Users and Authentication
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  firstName String?
+  lastName  String?
+  avatar    String?
+  isActive  Boolean  @default(true)
+  role      UserRole @default(USER)
+  
+  // Permissions
+  permissions UserPermission[]
+  
+  // Preferences
+  preferences Json?
+  timezone    String @default("UTC")
+  language    String @default("en")
+  
+  // Audit fields
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastLogin DateTime?
+  
+  // Relations
+  createdDevices  Device[] @relation("DeviceCreator")
+  modifiedDevices Device[] @relation("DeviceModifier")
+  alerts          Alert[]
+  sessions        UserSession[]
+
+  @@map("users")
+}
+
+model UserSession {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  userAgent String?
+  ipAddress String?
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_sessions")
+}
+
+model UserPermission {
+  id       String           @id @default(cuid())
+  userId   String
+  resource PermissionType
+  action   PermissionAction
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, resource, action])
+  @@map("user_permissions")
+}
+
+// Devices and Network Infrastructure
+model Device {
+  id          String      @id @default(cuid())
+  hostname    String
+  sysName     String?
+  displayName String?
+  ip          String
+  type        DeviceType  @default(UNKNOWN)
+  status      DeviceStatus @default(DOWN)
+  
+  // SNMP Configuration
+  snmpVersion    String @default("2c")
+  snmpCommunity  String @default("public")
+  snmpUsername   String?
+  snmpPassword   String?
+  snmpAuthAlgo   String?
+  snmpCryptoAlgo String?
+  snmpPort       Int    @default(161)
+  snmpTimeout    Int    @default(5000)
+  snmpRetries    Int    @default(3)
+  
+  // Device Information
+  vendor      String?
+  model       String?
+  version     String?
+  serial      String?
+  features    String?
+  os          String?
+  hardware    String?
+  sysDescr    String?
+  sysContact  String?
+  sysLocation String?
+  uptime      BigInt?
+  
+  // Location
+  locationId String?
+  location   Location? @relation(fields: [locationId], references: [id])
+  
+  // Monitoring Configuration
+  disabled    Boolean @default(false)
+  ignore      Boolean @default(false)
+  purpose     String?
+  notes       String?
+  
+  // Performance Data
+  lastPolled     DateTime?
+  lastDiscovered DateTime?
+  lastPing       DateTime?
+  pingTime       Float?
+  availability   Float?
+  
+  // Audit fields
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  createdBy  String?
+  modifiedBy String?
+  
+  // Relations
+  creator  User? @relation("DeviceCreator", fields: [createdBy], references: [id])
+  modifier User? @relation("DeviceModifier", fields: [modifiedBy], references: [id])
+  
+  ports    Port[]
+  sensors  Sensor[]
+  services Service[]
+  alerts   Alert[]
+  graphs   DeviceGraph[]
+  
+  @@unique([hostname])
+  @@unique([ip])
+  @@map("devices")
+}
+
+model Location {
+  id        String  @id @default(cuid())
+  name      String  @unique
+  lat       Float?
+  lng       Float?
+  address   String?
+  city      String?
+  state     String?
+  country   String?
+  timezone  String?
+  
+  devices   Device[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("locations")
+}
+
+// Network Interfaces and Ports
+model Port {
+  id         String     @id @default(cuid())
+  deviceId   String
+  ifIndex    Int
+  ifName     String
+  ifAlias    String?
+  ifDescr    String?
+  ifType     String?
+  ifMtu      Int?
+  ifSpeed    BigInt?
+  ifDuplex   String?
+  ifVlan     String?
+  
+  // Status
+  ifAdminStatus String @default("unknown")
+  ifOperStatus  String @default("unknown")
+  
+  // Monitoring
+  disabled Boolean @default(false)
+  ignore   Boolean @default(false)
+  
+  // Statistics (latest values)
+  ifInOctets     BigInt?
+  ifOutOctets    BigInt?
+  ifInUcastPkts  BigInt?
+  ifOutUcastPkts BigInt?
+  ifInErrors     BigInt?
+  ifOutErrors    BigInt?
+  ifInDiscards   BigInt?
+  ifOutDiscards  BigInt?
+  
+  // Timestamps
+  lastPolled DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, ifIndex])
+  @@map("ports")
+}
+
+// Sensors (Temperature, Humidity, etc.)
+model Sensor {
+  id          String     @id @default(cuid())
+  deviceId    String
+  sensorIndex String
+  sensorType  SensorType
+  sensorDescr String
+  sensorClass String?
+  sensorOid   String
+  
+  // Current values
+  sensorValue   Float?
+  sensorLimit   Float?
+  sensorLimitLow Float?
+  sensorPrev    Float?
+  
+  // Configuration
+  sensorCustom Boolean @default(false)
+  disabled     Boolean @default(false)
+  
+  // Timestamps
+  lastPolled DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, sensorIndex, sensorType])
+  @@map("sensors")
+}
+
+// Services Monitoring
+model Service {
+  id        String        @id @default(cuid())
+  deviceId  String
+  name      String
+  type      ServiceType
+  check     String
+  status    ServiceStatus @default(UNKNOWN)
+  
+  // Check configuration
+  checkParams Json?
+  interval    Int @default(300) // seconds
+  timeout     Int @default(30)  // seconds
+  retries     Int @default(3)
+  
+  // Results
+  output      String?
+  perfData    String?
+  lastCheck   DateTime?
+  lastChanged DateTime?
+  
+  // Configuration
+  disabled Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, name])
+  @@map("services")
+}
+
+// Alerting System
+model AlertRule {
+  id          String          @id @default(cuid())
+  name        String          @unique
+  query       String
+  severity    AlertSeverity   @default(WARNING)
+  enabled     Boolean         @default(true)
+  
+  // Conditions
+  operator    String // >, <, =, !=, etc.
+  value       Float
+  delay       Int @default(0) // minutes
+  recovery    Boolean @default(true)
+  
+  // Templates
+  template    String?
+  title       String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  alerts      Alert[]
+  
+  @@map("alert_rules")
+}
+
+model Alert {
+  id        String        @id @default(cuid())
+  ruleId    String
+  deviceId  String?
+  userId    String?
+  
+  // Alert details
+  severity  AlertSeverity
+  state     AlertState    @default(ACTIVE)
+  message   String
+  details   Json?
+  
+  // Timing
+  timestamp DateTime      @default(now())
+  ackTime   DateTime?
+  ackBy     String?
+  note      String?
+  
+  // Relations
+  rule   AlertRule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  device Device?   @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  user   User?     @relation(fields: [userId], references: [id])
+  
+  @@map("alerts")
+}
+
+// Graphing and Performance Data
+model DeviceGraph {
+  id        String @id @default(cuid())
+  deviceId  String
+  type      String // interface, processor, memory, etc.
+  subtype   String? // specific interface, etc.
+  
+  // Graph configuration
+  title     String
+  unit      String?
+  base      Int @default(1000)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, type, subtype])
+  @@map("device_graphs")
+}
+
+// Application Settings
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value Json
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
+
+// Enums
+enum UserRole {
+  ADMIN
+  USER
+  VIEWER
+}
+
+enum PermissionType {
+  DEVICE
+  ALERT
+  USER
+  SETTING
+  REPORT
+}
+
+enum PermissionAction {
+  CREATE
+  READ
+  UPDATE
+  DELETE
+}
+
+enum DeviceType {
+  ROUTER
+  SWITCH
+  FIREWALL
+  SERVER
+  WIRELESS
+  PRINTER
+  UPS
+  UNKNOWN
+}
+
+enum DeviceStatus {
+  UP
+  DOWN
+  WARNING
+  UNKNOWN
+}
+
+enum SensorType {
+  TEMPERATURE
+  HUMIDITY
+  VOLTAGE
+  CURRENT
+  POWER
+  FAN_SPEED
+  FREQUENCY
+  SIGNAL
+  OTHER
+}
+
+enum ServiceType {
+  HTTP
+  HTTPS
+  SSH
+  TELNET
+  FTP
+  SMTP
+  POP3
+  IMAP
+  DNS
+  PING
+  TCP
+  UDP
+  CUSTOM
+}
+
+enum ServiceStatus {
+  OK
+  WARNING
+  CRITICAL
+  UNKNOWN
+}
+
+enum AlertSeverity {
+  INFO
+  WARNING
+  CRITICAL
+  EMERGENCY
+}
+
+enum AlertState {
+  ACTIVE
+  ACKNOWLEDGED
+  RESOLVED
+}

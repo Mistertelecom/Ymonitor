@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(npm init:*)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(npx turbo@latest run:*)",
+      "Bash(npx turbo run:*)",
+      "Bash(npx turbo test:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npx tsc --noEmit src/auth/user.decorator.ts src/auth/guards/jwt-auth.guard.ts src/alerts/controllers/alerts.controller.ts)",
+      "Bash(taskkill:*)",
+      "Bash(start /B npm run dev)",
+      "Bash(powershell:*)",
+      "Bash(tasklist:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}

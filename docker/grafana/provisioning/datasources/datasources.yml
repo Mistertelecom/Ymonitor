@@ -1,0 +1,35 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    database: monitoring
+    user: admin
+    password: password123
+    jsonData:
+      version: Flux
+      organization: ymonitor
+      defaultBucket: monitoring
+      tlsSkipVerify: true
+    secureJsonData:
+      token: ymonitor-super-secret-token
+
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    database: ymonitor
+    user: ymonitor
+    password: password
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1500
+      timescaledb: false
+
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
