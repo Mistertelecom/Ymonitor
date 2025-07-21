@@ -1,7 +1,7 @@
 // SNMP Client Service Implementation for Y Monitor
 // Based on LibreNMS SNMP patterns
 
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as snmp from 'net-snmp';
 import { 
@@ -25,7 +25,7 @@ export class SNMPClientService implements ISNMPClient {
 
   constructor(
     private configService: ConfigService,
-    private cache?: ISNMPCache,
+    @Inject('ISNMPCache') private cache: ISNMPCache,
   ) {}
 
   async get(device: SNMPDevice, oids: string[]): Promise<SNMPResponse> {

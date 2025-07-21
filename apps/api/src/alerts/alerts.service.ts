@@ -24,7 +24,7 @@ export class AlertsService {
 
   async findActive() {
     return this.prisma.alert.findMany({
-      where: { state: 'ACTIVE' },
+      where: { state: 'open' },
       include: {
         rule: true,
         device: {
@@ -45,12 +45,12 @@ export class AlertsService {
   async getStats() {
     const [total, active, critical, warning] = await Promise.all([
       this.prisma.alert.count(),
-      this.prisma.alert.count({ where: { state: 'ACTIVE' } }),
+      this.prisma.alert.count({ where: { state: 'open' } }),
       this.prisma.alert.count({
-        where: { state: 'ACTIVE', severity: 'CRITICAL' },
+        where: { state: 'open', severity: 'critical' },
       }),
       this.prisma.alert.count({
-        where: { state: 'ACTIVE', severity: 'WARNING' },
+        where: { state: 'open', severity: 'warning' },
       }),
     ]);
 
@@ -67,7 +67,7 @@ export class AlertsService {
     return this.prisma.alert.update({
       where: { id },
       data: {
-        state: 'ACKNOWLEDGED',
+        state: 'acknowledged',
         ackTime: new Date(),
         ackBy: userId,
         note,
@@ -79,7 +79,7 @@ export class AlertsService {
     return this.prisma.alert.update({
       where: { id },
       data: {
-        state: 'RESOLVED',
+        state: 'resolved',
       },
     });
   }

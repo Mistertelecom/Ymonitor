@@ -275,22 +275,32 @@ model Service {
 model AlertRule {
   id          String          @id @default(cuid())
   name        String          @unique
+  description String?
   query       String
-  severity    AlertSeverity   @default(WARNING)
+  severity    AlertSeverity   @default(warning)
   enabled     Boolean         @default(true)
+  deviceGroup String?
+  deviceFilter Json?
+  conditions Json?
+  interval Int @default(300) // seconds
+  acknowledgeable Boolean @default(true)
+  suppressable Boolean @default(true)
   
   // Conditions
-  operator    String // >, <, =, !=, etc.
-  value       Float
+  operator    String? // >, <, =, !=, etc.
+  value       Float?
   delay       Int @default(0) // minutes
   recovery    Boolean @default(true)
   
   // Templates
   template    String?
   title       String?
+  translations Json?
+  metadata Json?
   
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  createdBy   String?
   
   // Relations
   alerts      Alert[]
@@ -306,15 +316,25 @@ model Alert {
   
   // Alert details
   severity  AlertSeverity
-  state     AlertState    @default(ACTIVE)
+  state     AlertState    @default(open)
   message   String
   details   Json?
   
   // Timing
   timestamp DateTime      @default(now())
+  firstOccurred DateTime  @default(now())
+  lastOccurred DateTime   @default(now())
   ackTime   DateTime?
   ackBy     String?
   note      String?
+  resolvedAt DateTime?
+  resolvedBy String?
+  resolvedNote String?
+  
+  // Statistics
+  occurrences Int @default(1)
+  notificationsSent Int @default(0)
+  lastNotificationSent DateTime?
   
   // Relations
   rule   AlertRule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
@@ -344,6 +364,88 @@ model DeviceGraph {
   
   @@unique([deviceId, type, subtype])
   @@map("device_graphs")
+}
+
+// Alert History
+model AlertHistory {
+  id            String     @id @default(cuid())
+  alertId       String
+  action        String     // created, acknowledged, resolved, etc.
+  previousState AlertState?
+  newState      AlertState?
+  userId        String?
+  userName      String?
+  note          String?
+  metadata      Json?
+  timestamp     DateTime   @default(now())
+  language      String     @default("en")
+  
+  @@map("alert_history")
+}
+
+// Alert Notifications
+model AlertNotification {
+  id              String   @id @default(cuid())
+  alertId         String
+  transportId     String
+  status          String   @default("pending") // pending, sent, failed, retrying
+  attempts        Int      @default(0)
+  lastAttempt     DateTime?
+  sentAt          DateTime?
+  error           String?
+  response        String?
+  language        String   @default("en")
+  escalationLevel Int      @default(0)
+  metadata        Json?
+  
+  @@map("alert_notifications")
+}
+
+// Alert Transports
+model AlertTransport {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // email, webhook, slack, etc.
+  enabled     Boolean  @default(true)
+  config      Json
+  conditions  Json?
+  translations Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("alert_transports")
+}
+
+// Alert Templates
+model AlertTemplate {
+  id           String   @id @default(cuid())
+  name         String
+  type         String   // email, webhook, slack, sms
+  subject      String?
+  body         String
+  variables    String[] // Array of variable names
+  translations Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  @@map("alert_templates")
+}
+
+// Topology
+model Topology {
+  id             String   @id @default(cuid())
+  deviceId       String?
+  parentId       String?
+  localPort      String?
+  remotePort     String?
+  remoteHostname String?
+  protocol       String?
+  data           Json?
+  lastUpdated    DateTime @default(now())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  @@map("topology")
 }
 
 // Application Settings
@@ -434,14 +536,15 @@ enum ServiceStatus {
 }
 
 enum AlertSeverity {
-  INFO
-  WARNING
-  CRITICAL
-  EMERGENCY
+  critical
+  warning
+  info
+  ok
 }
 
 enum AlertState {
-  ACTIVE
-  ACKNOWLEDGED
-  RESOLVED
+  open
+  acknowledged
+  resolved
+  suppressed
 }

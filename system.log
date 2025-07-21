@@ -1,0 +1,1002 @@
+
+> y-monitor@1.0.0 dev
+> turbo run dev
+
+turbo 2.5.5
+
+• Packages in scope: @y-monitor/api, @y-monitor/web
+• Running dev in 2 packages
+• Remote caching disabled
+@y-monitor/web:dev: cache bypass, force executing 6ae33feb2727316b
+@y-monitor/api:dev: cache bypass, force executing 878d5389956fcc7f
+@y-monitor/web:dev: 
+@y-monitor/web:dev: > @y-monitor/web@1.0.0 dev
+@y-monitor/web:dev: > next dev --port 3005
+@y-monitor/web:dev: 
+@y-monitor/api:dev: 
+@y-monitor/api:dev: > @y-monitor/api@1.0.0 dev
+@y-monitor/api:dev: > npm run start:dev
+@y-monitor/api:dev: 
+@y-monitor/api:dev: 
+@y-monitor/api:dev: > @y-monitor/api@1.0.0 start:dev
+@y-monitor/api:dev: > nest start --watch
+@y-monitor/api:dev: 
+@y-monitor/web:dev:   ▲ Next.js 14.2.30
+@y-monitor/web:dev:   - Local:        http://localhost:3005
+@y-monitor/web:dev:   - Environments: .env
+@y-monitor/web:dev: 
+@y-monitor/web:dev:  ✓ Starting...
+@y-monitor/api:dev: [2J[3J[H[[90m14:26:01[0m] Starting compilation in watch mode...
+@y-monitor/api:dev: 
+@y-monitor/web:dev:  ✓ Ready in 3.1s
+@y-monitor/api:dev: [[90m14:26:11[0m] Found 0 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [32minfo[39m: Starting Nest application... {"context":"NestFactory","timestamp":"2025-07-21T17:26:13.056Z"}
+@y-monitor/api:dev: [32minfo[39m: AppModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.084Z"}
+@y-monitor/api:dev: [32minfo[39m: BullModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.085Z"}
+@y-monitor/api:dev: [32minfo[39m: PrismaModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.085Z"}
+@y-monitor/api:dev: [32minfo[39m: PassportModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.085Z"}
+@y-monitor/api:dev: [32minfo[39m: ThrottlerModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.086Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigHostModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.087Z"}
+@y-monitor/api:dev: [32minfo[39m: WinstonModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.087Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.087Z"}
+@y-monitor/api:dev: [32minfo[39m: HealthModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.088Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.089Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.089Z"}
+@y-monitor/api:dev: [32minfo[39m: ScheduleModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.090Z"}
+@y-monitor/api:dev: [32minfo[39m: InfluxDBModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.094Z"}
+@y-monitor/api:dev: [32minfo[39m: JwtModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.095Z"}
+@y-monitor/api:dev: [32minfo[39m: UsersModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.095Z"}
+@y-monitor/api:dev: [32minfo[39m: DevicesModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.096Z"}
+@y-monitor/api:dev: [32minfo[39m: AlertsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.096Z"}
+@y-monitor/api:dev: [32minfo[39m: ReportsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.096Z"}
+@y-monitor/api:dev: [32minfo[39m: NetworkModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.096Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.097Z"}
+@y-monitor/api:dev: [32minfo[39m: SNMPModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.098Z"}
+@y-monitor/api:dev: [32minfo[39m: SensorsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.098Z"}
+@y-monitor/api:dev: [32minfo[39m: MonitoringModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.098Z"}
+@y-monitor/api:dev: [32minfo[39m: AuthModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.099Z"}
+@y-monitor/api:dev: [32minfo[39m: DashboardModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T17:26:13.099Z"}
+@y-monitor/api:dev: [32minfo[39m: AuthController {/api/v1/auth}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.146Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/login, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.149Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/register, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.149Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/logout, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.150Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/refresh, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.150Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/me, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.150Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/verify, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.150Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/change-password, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.151Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.151Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions/:sessionId, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.152Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.152Z"}
+@y-monitor/api:dev: [32minfo[39m: UsersController {/api/v1/users}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.152Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.153Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.153Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.153Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.153Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.153Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/preferences, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.154Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/deactivate, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.154Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/activate, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.154Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.154Z"}
+@y-monitor/api:dev: [32minfo[39m: DevicesController {/api/v1/devices}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/:id, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: MonitoringController {/api/v1/monitoring}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/monitoring/metrics, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.155Z"}
+@y-monitor/api:dev: [32minfo[39m: SNMPController {/api/v1/snmp}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.156Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/get, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.156Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/walk, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.156Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/bulk-walk, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.156Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/set, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.156Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/test-connection, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/cache/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/cache/clear, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/oids/common, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: AlertsController {/api/v1/alerts}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.157Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.158Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/active, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.158Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.158Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/:id/acknowledge, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.158Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/:id/resolve, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.158Z"}
+@y-monitor/api:dev: [32minfo[39m: DashboardController {/api/v1/dashboard}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.159Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/dashboard, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.159Z"}
+@y-monitor/api:dev: [32minfo[39m: ReportsController {/api/v1/reports}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.159Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/availability, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.162Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/performance, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.163Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/alerts, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.163Z"}
+@y-monitor/api:dev: [32minfo[39m: NetworkController {/api/v1/network}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.163Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/topology, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.163Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/map, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.163Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.164Z"}
+@y-monitor/api:dev: [32minfo[39m: HealthController {/api/v1/health}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.164Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.164Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health/ready, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.164Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health/live, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.164Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryController {/api/v1/discovery}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.165Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.165Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/discover/incremental, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.165Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/session/:sessionId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.165Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/session/:sessionId, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.165Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.166Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/detect-os, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.166Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/history, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.166Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/schedule, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.166Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.166Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/templates/:os, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.167Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules/:moduleName/enable, PUT} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.167Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules/:moduleName/disable, PUT} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.167Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/module/:moduleName, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.167Z"}
+@y-monitor/api:dev: [32minfo[39m: SensorsController {/api/v1/sensors}: {"context":"RoutesResolver","timestamp":"2025-07-21T17:26:13.167Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/device/:deviceId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.168Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/history/:deviceId/:sensorId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.168Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/discover/:deviceId, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T17:26:13.168Z"}
+@y-monitor/api:dev: [32minfo[39m: Redis connected for SNMP cache {"context":"SNMPCacheService","timestamp":"2025-07-21T17:26:13.185Z"}
+@y-monitor/api:dev: [32minfo[39m: Redis connected for SNMP cache {"context":"SNMPCacheService","timestamp":"2025-07-21T17:26:13.186Z"}
+@y-monitor/api:dev: [32minfo[39m: Connected to InfluxDB successfully {"context":"InfluxDBService","timestamp":"2025-07-21T17:26:13.320Z"}
+@y-monitor/api:dev: [32minfo[39m: Nest application successfully started {"context":"NestApplication","timestamp":"2025-07-21T17:26:13.338Z"}
+@y-monitor/api:dev: 🚀 Y Monitor API running on http://localhost:3006
+@y-monitor/api:dev: 📚 Documentation available at http://localhost:3006/api
+@y-monitor/api:dev: [33mwarn[39m: InfluxDB query test failed: connect ECONNREFUSED 127.0.0.1:8086 {"context":"InfluxDBService","timestamp":"2025-07-21T17:26:13.342Z"}
+@y-monitor/web:dev:  ○ Compiling / ...
+@y-monitor/web:dev:  ✓ Compiled / in 6s (630 modules)
+@y-monitor/web:dev:  GET / 200 in 6342ms
+@y-monitor/web:dev:  ✓ Compiled in 633ms (319 modules)
+@y-monitor/web:dev:  GET / 200 in 25ms
+@y-monitor/web:dev: (node:134071) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+@y-monitor/web:dev: (Use `node --trace-deprecation ...` to show where the warning was created)
+@y-monitor/web:dev:  ○ Compiling /dashboard ...
+@y-monitor/web:dev:  ✓ Compiled /dashboard in 6.4s (1840 modules)
+@y-monitor/web:dev:  ○ Compiling /devices ...
+@y-monitor/web:dev:  ✓ Compiled /devices in 881ms (1858 modules)
+@y-monitor/web:dev:  GET /devices 200 in 1262ms
+@y-monitor/web:dev:  GET /dashboard 200 in 44ms
+@y-monitor/web:dev:  ○ Compiling /network ...
+@y-monitor/web:dev:  ✓ Compiled /network in 1225ms (1897 modules)
+@y-monitor/web:dev:  GET /network 200 in 1367ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:28:00.098Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 11ms {"context":"SensorsService","timestamp":"2025-07-21T17:28:00.100Z"}
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1705ms (1911 modules)
+@y-monitor/web:dev:  GET /network 200 in 1098ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1483ms (1911 modules)
+@y-monitor/web:dev:  GET /network 200 in 1191ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:30:00.051Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 8ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:30:00.052Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:30:00.055Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 8ms {"context":"SensorsService","timestamp":"2025-07-21T17:30:00.056Z"}
+@y-monitor/web:dev:  ✓ Compiled in 661ms (961 modules)
+@y-monitor/web:dev:  ✓ Compiled in 1314ms (1911 modules)
+@y-monitor/web:dev:  ⨯ ./src/app/network/page.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `ErrorBoundary`. Expected jsx identifier
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/app/network/page.tsx[0m:546:1]
+@y-monitor/web:dev:  [2m546[0m |   }
+@y-monitor/web:dev:  [2m547[0m |   
+@y-monitor/web:dev:  [2m548[0m |   return (
+@y-monitor/web:dev:  [2m549[0m |     <ErrorBoundary>
+@y-monitor/web:dev:      : [31;1m     ^^^^^^^^^^^^^[0m
+@y-monitor/web:dev:  [2m550[0m |       <div className="p-6 space-y-6">
+@y-monitor/web:dev:  [2m551[0m |         <div className="flex items-center justify-between">
+@y-monitor/web:dev:  [2m552[0m |           <div>
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/app/network/page.tsx
+@y-monitor/web:dev:  ○ Compiling /_error ...
+@y-monitor/web:dev:  ⨯ ./src/app/network/page.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `ErrorBoundary`. Expected jsx identifier
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/app/network/page.tsx[0m:546:1]
+@y-monitor/web:dev:  [2m546[0m |   }
+@y-monitor/web:dev:  [2m547[0m |   
+@y-monitor/web:dev:  [2m548[0m |   return (
+@y-monitor/web:dev:  [2m549[0m |     <ErrorBoundary>
+@y-monitor/web:dev:      : [31;1m     ^^^^^^^^^^^^^[0m
+@y-monitor/web:dev:  [2m550[0m |       <div className="p-6 space-y-6">
+@y-monitor/web:dev:  [2m551[0m |         <div className="flex items-center justify-between">
+@y-monitor/web:dev:  [2m552[0m |           <div>
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/app/network/page.tsx
+@y-monitor/web:dev:  ✓ Compiled /_error in 2.5s (2149 modules)
+@y-monitor/web:dev:  ✓ Compiled (2135 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /network 200 in 818ms
+@y-monitor/web:dev:  ⨯ ./src/app/network/page.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/app/network/page.tsx[0m:546:1]
+@y-monitor/web:dev:  [2m546[0m |   }
+@y-monitor/web:dev:  [2m547[0m |   
+@y-monitor/web:dev:  [2m548[0m |   return (
+@y-monitor/web:dev:  [2m549[0m |     <div className="p-6 space-y-6">
+@y-monitor/web:dev:      : [31;1m     ^^^[0m
+@y-monitor/web:dev:  [2m550[0m |       <div className="flex items-center justify-between">
+@y-monitor/web:dev:  [2m551[0m |         <div>
+@y-monitor/web:dev:  [2m552[0m |           <h1 className="text-3xl font-bold tracking-tight">Network</h1>
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/app/network/page.tsx
+@y-monitor/web:dev:  GET /network 500 in 20ms
+@y-monitor/web:dev:  ○ Compiling /_not-found ...
+@y-monitor/web:dev:  ✓ Compiled /_not-found in 2.2s (2148 modules)
+@y-monitor/web:dev:  ✓ Compiled (2134 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /_next/static/webpack/9bf17a950e99a585.webpack.hot-update.json 404 in 2318ms
+@y-monitor/web:dev:  GET /network 200 in 230ms
+@y-monitor/web:dev:  ✓ Compiled in 1374ms (2148 modules)
+@y-monitor/web:dev:  ✓ Compiled in 1597ms (2148 modules)
+@y-monitor/web:dev:  GET /network 200 in 55ms
+@y-monitor/web:dev:  GET /dashboard 200 in 36ms
+@y-monitor/web:dev:  GET / 200 in 42ms
+@y-monitor/web:dev:  ○ Compiling /login ...
+@y-monitor/web:dev:  ✓ Compiled /login in 979ms (2143 modules)
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:32:00.089Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 11ms {"context":"SensorsService","timestamp":"2025-07-21T17:32:00.090Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:34:00.061Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 3ms {"context":"SensorsService","timestamp":"2025-07-21T17:34:00.061Z"}
+@y-monitor/web:dev:  ✓ Compiled in 3s (2157 modules)
+@y-monitor/web:dev:  ⨯ ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Expression expected
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:122:1]
+@y-monitor/web:dev:  [2m122[0m |   };
+@y-monitor/web:dev:  [2m123[0m | 
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <>
+@y-monitor/web:dev:      : [31;1m     ^[0m
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev:   [31mx[0m Expected ',', got '< (jsx tag start)'
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:124:1]
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <>
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:      : [31;1m      ^[0m
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:  [2m129[0m |           <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Devices</CardTitle>
+@y-monitor/web:dev:  [2m130[0m |           <div className="p-3 gradient-primary rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: ./src/app/dashboard/page.tsx
+@y-monitor/web:dev:  ○ Compiling /_error ...
+@y-monitor/web:dev:  ⨯ ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Expression expected
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:122:1]
+@y-monitor/web:dev:  [2m122[0m |   };
+@y-monitor/web:dev:  [2m123[0m | 
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <>
+@y-monitor/web:dev:      : [31;1m     ^[0m
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev:   [31mx[0m Expected ',', got '< (jsx tag start)'
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:124:1]
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <>
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:      : [31;1m      ^[0m
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:  [2m129[0m |           <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Devices</CardTitle>
+@y-monitor/web:dev:  [2m130[0m |           <div className="p-3 gradient-primary rounded-xl group-hover:scale-105 transition-all duration-300 shadow-lg">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: ./src/app/dashboard/page.tsx
+@y-monitor/web:dev:  GET /dashboard 500 in 65ms
+@y-monitor/web:dev:  ✓ Compiled /_not-found in 1373ms (2162 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 267ms
+@y-monitor/web:dev:  ✓ Compiled (2148 modules)
+@y-monitor/web:dev:  ⨯ ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `React`. Expected jsx identifier
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:122:1]
+@y-monitor/web:dev:  [2m122[0m |   };
+@y-monitor/web:dev:  [2m123[0m | 
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <React.Fragment>
+@y-monitor/web:dev:      : [31;1m     ^^^^^[0m
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: ./src/app/dashboard/page.tsx
+@y-monitor/web:dev:  GET /dashboard 500 in 22ms
+@y-monitor/web:dev:  ✓ Compiled in 1332ms (2162 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 279ms
+@y-monitor/web:dev:  ✓ Compiled (2148 modules)
+@y-monitor/web:dev:  ⨯ ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+@y-monitor/web:dev:     ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:72:1]
+@y-monitor/web:dev:  [2m72[0m | 
+@y-monitor/web:dev:  [2m73[0m |   if (isLoading) {
+@y-monitor/web:dev:  [2m74[0m |     return (
+@y-monitor/web:dev:  [2m75[0m |       <div className="contents">
+@y-monitor/web:dev:     : [31;1m       ^^^[0m
+@y-monitor/web:dev:  [2m76[0m |         {[1, 2, 3, 4].map((i) => (
+@y-monitor/web:dev:  [2m77[0m |           <Card key={i} className="card-elevated">
+@y-monitor/web:dev:  [2m78[0m |             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+@y-monitor/web:dev:     `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: ./src/app/dashboard/page.tsx
+@y-monitor/web:dev:  GET /dashboard 500 in 25ms
+@y-monitor/web:dev:  ✓ Compiled in 2.4s (2162 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 303ms
+@y-monitor/web:dev:  ✓ Compiled (2148 modules)
+@y-monitor/web:dev:  ⨯ ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: Error: 
+@y-monitor/web:dev:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+@y-monitor/web:dev:      ,-[[36;1;4m/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/src/components/dashboard/dashboard-stats.tsx[0m:122:1]
+@y-monitor/web:dev:  [2m122[0m |   };
+@y-monitor/web:dev:  [2m123[0m | 
+@y-monitor/web:dev:  [2m124[0m |   return (
+@y-monitor/web:dev:  [2m125[0m |     <div className="contents">
+@y-monitor/web:dev:      : [31;1m     ^^^[0m
+@y-monitor/web:dev:  [2m126[0m |       {/* Devices Overview */}
+@y-monitor/web:dev:  [2m127[0m |       <Card className="card-elevated group hover:shadow-primary/5">
+@y-monitor/web:dev:  [2m128[0m |         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+@y-monitor/web:dev:      `----
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Caused by:
+@y-monitor/web:dev:     Syntax Error
+@y-monitor/web:dev: 
+@y-monitor/web:dev: Import trace for requested module:
+@y-monitor/web:dev: ./src/components/dashboard/dashboard-stats.tsx
+@y-monitor/web:dev: ./src/app/dashboard/page.tsx
+@y-monitor/web:dev:  GET /dashboard 500 in 29ms
+@y-monitor/web:dev:  ✓ Compiled in 1079ms (2162 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled (2148 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 278ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:35:00.052Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 10ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:35:00.053Z"}
+@y-monitor/web:dev:  ✓ Compiled in 1520ms (2162 modules)
+@y-monitor/web:dev:  ✓ Compiled in 2.3s (2162 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 62ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:36:00.026Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 13ms {"context":"SensorsService","timestamp":"2025-07-21T17:36:00.028Z"}
+@y-monitor/web:dev:  GET /devices 200 in 141ms
+@y-monitor/web:dev:  GET /dashboard 200 in 36ms
+@y-monitor/web:dev:  GET /network 200 in 97ms
+@y-monitor/web:dev:  GET /dashboard 200 in 47ms
+@y-monitor/web:dev:  ○ Compiling /alerts ...
+@y-monitor/web:dev:  ✓ Compiled /alerts in 3.3s (2161 modules)
+@y-monitor/web:dev:  GET /alerts 200 in 3578ms
+@y-monitor/web:dev:  GET /dashboard 200 in 52ms
+@y-monitor/web:dev:  GET /devices 200 in 98ms
+@y-monitor/web:dev:  GET /devices 200 in 93ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:38:00.042Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 15ms {"context":"SensorsService","timestamp":"2025-07-21T17:38:00.044Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:40:00.097Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 16ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:40:00.099Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:40:00.104Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 18ms {"context":"SensorsService","timestamp":"2025-07-21T17:40:00.105Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:42:00.089Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 10ms {"context":"SensorsService","timestamp":"2025-07-21T17:42:00.090Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:44:00.132Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 54ms {"context":"SensorsService","timestamp":"2025-07-21T17:44:00.132Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:45:00.078Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 4ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:45:00.078Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:46:00.085Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 10ms {"context":"SensorsService","timestamp":"2025-07-21T17:46:00.086Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:48:00.073Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 3ms {"context":"SensorsService","timestamp":"2025-07-21T17:48:00.074Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:50:00.107Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 38ms {"context":"SensorsService","timestamp":"2025-07-21T17:50:00.109Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:50:00.111Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 40ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:50:00.111Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:52:00.098Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 28ms {"context":"SensorsService","timestamp":"2025-07-21T17:52:00.102Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:54:00.069Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 2ms {"context":"SensorsService","timestamp":"2025-07-21T17:54:00.069Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:55:00.075Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 9ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T17:55:00.076Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:56:00.117Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 52ms {"context":"SensorsService","timestamp":"2025-07-21T17:56:00.117Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T17:58:00.073Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 9ms {"context":"SensorsService","timestamp":"2025-07-21T17:58:00.074Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:00:00.081Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 20ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:00:00.082Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:00:00.147Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 82ms {"context":"SensorsService","timestamp":"2025-07-21T18:00:00.148Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:02:00.064Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 6ms {"context":"SensorsService","timestamp":"2025-07-21T18:02:00.065Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:04:00.059Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 2ms {"context":"SensorsService","timestamp":"2025-07-21T18:04:00.059Z"}
+@y-monitor/web:dev:  GET / 200 in 232ms
+@y-monitor/web:dev:  ✓ Compiled in 3.7s (2175 modules)
+@y-monitor/web:dev:  ✓ Compiled in 2.9s (2175 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 196ms
+@y-monitor/web:dev:  GET /devices 200 in 133ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 2.7s (2175 modules)
+@y-monitor/web:dev:  GET /devices 200 in 987ms
+@y-monitor/web:dev:  GET /dashboard 200 in 32ms
+@y-monitor/web:dev:  GET /devices 200 in 47ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:05:00.067Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 9ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:05:00.068Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:06:00.061Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 5ms {"context":"SensorsService","timestamp":"2025-07-21T18:06:00.061Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:08:00.064Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 10ms {"context":"SensorsService","timestamp":"2025-07-21T18:08:00.065Z"}
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 3.5s (2171 modules)
+@y-monitor/web:dev:  GET /devices 200 in 2951ms
+@y-monitor/web:dev:  ✓ Compiled in 1357ms (2171 modules)
+@y-monitor/web:dev:  GET /devices 200 in 204ms
+@y-monitor/web:dev:  GET /devices 200 in 111ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1888ms (2171 modules)
+@y-monitor/web:dev:  GET /devices 200 in 1509ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:10:00.055Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 4ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:10:00.056Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:10:00.058Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 5ms {"context":"SensorsService","timestamp":"2025-07-21T18:10:00.058Z"}
+@y-monitor/web:dev:  GET /devices 200 in 107ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:12:00.064Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 10ms {"context":"SensorsService","timestamp":"2025-07-21T18:12:00.064Z"}
+@y-monitor/web:dev:  GET /dashboard 200 in 122ms
+@y-monitor/web:dev:  GET /devices 200 in 125ms
+@y-monitor/web:dev:  GET /dashboard 200 in 65ms
+@y-monitor/web:dev:  ✓ Compiled in 766ms (1167 modules)
+@y-monitor/web:dev:  ✓ Compiled in 2.2s (2171 modules)
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:14:00.056Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 5ms {"context":"SensorsService","timestamp":"2025-07-21T18:14:00.056Z"}
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 301ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 2.2s (2173 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1891ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:15:00.054Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 4ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:15:00.054Z"}
+@y-monitor/web:dev:  ✓ Compiled in 727ms (1168 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 73ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1672ms (2175 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1409ms
+@y-monitor/web:dev:  ✓ Compiled in 420ms (1169 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 58ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:16:00.013Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 3ms {"context":"SensorsService","timestamp":"2025-07-21T18:16:00.013Z"}
+@y-monitor/web:dev:  ✓ Compiled in 377ms (1169 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 61ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 2.1s (2175 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1626ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1690ms (2175 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1352ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1447ms (2177 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 949ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1792ms (2183 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1444ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1951ms (2183 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1640ms
+@y-monitor/web:dev:  ✓ Compiled in 399ms (1173 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 239ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 4.5s (2185 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 4005ms
+@y-monitor/web:dev:  ✓ Compiled in 683ms (1174 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 72ms
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:18:00.051Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 19ms {"context":"SensorsService","timestamp":"2025-07-21T18:18:00.056Z"}
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1930ms (2185 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1630ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1946ms (2185 modules)
+@y-monitor/web:dev:  GET /dashboard 200 in 1477ms
+@y-monitor/web:dev:  ✓ Compiled in 736ms (1174 modules)
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  GET /dashboard 200 in 119ms
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+@y-monitor/web:dev:  ✓ Compiled in 1864ms (2185 modules)
+@y-monitor/web:dev:  ⨯ Error: Cannot find module './103.js'
+@y-monitor/web:dev: Require stack:
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/build/utils.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-middleware.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/start-server.js
+@y-monitor/web:dev:     at Function.<anonymous> (node:internal/modules/cjs/loader:1394:15)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:55:36
+@y-monitor/web:dev:     at defaultResolveImpl (node:internal/modules/cjs/loader:1050:19)
+@y-monitor/web:dev:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1055:22)
+@y-monitor/web:dev:     at Function._load (node:internal/modules/cjs/loader:1204:37)
+@y-monitor/web:dev:     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+@y-monitor/web:dev:     at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)
+@y-monitor/web:dev:     at Module.<anonymous> (node:internal/modules/cjs/loader:1480:12)
+@y-monitor/web:dev:     at mod.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:65:28)
+@y-monitor/web:dev:     at require (node:internal/modules/helpers:135:16)
+@y-monitor/web:dev:     at __webpack_require__.f.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:198:28)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:111:40
+@y-monitor/web:dev:     at Array.reduce (<anonymous>)
+@y-monitor/web:dev:     at __webpack_require__.e (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:110:67)
+@y-monitor/web:dev:     at Array.map (<anonymous>)
+@y-monitor/web:dev:     at __webpack_require__.X (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:162:22)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js:1:467427
+@y-monitor/web:dev:     at Object.<anonymous> (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js:1:467479)
+@y-monitor/web:dev:     at Module._compile (node:internal/modules/cjs/loader:1723:14)
+@y-monitor/web:dev:     at Object..js (node:internal/modules/cjs/loader:1888:10)
+@y-monitor/web:dev:     at Module.load (node:internal/modules/cjs/loader:1458:32)
+@y-monitor/web:dev:     at Function._load (node:internal/modules/cjs/loader:1275:12)
+@y-monitor/web:dev:     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+@y-monitor/web:dev:     at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)
+@y-monitor/web:dev:     at Module.<anonymous> (node:internal/modules/cjs/loader:1480:12)
+@y-monitor/web:dev:     at mod.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:65:28)
+@y-monitor/web:dev:     at require (node:internal/modules/helpers:135:16)
+@y-monitor/web:dev:     at requirePage (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js:109:84)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js:103:84
+@y-monitor/web:dev:     at async loadComponentsImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js:103:26)
+@y-monitor/web:dev:     at async DevServer.findPageComponentsImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/next-server.js:714:36)
+@y-monitor/web:dev:     at async DevServer.findPageComponents (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+@y-monitor/web:dev:     at async DevServer.renderPageComponent (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/base-server.js:1910:24)
+@y-monitor/web:dev:     at async DevServer.renderToResponseImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/base-server.js:1962:32)
+@y-monitor/web:dev:     at async DevServer.pipeImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/base-server.js:922:25)
+@y-monitor/web:dev:     at async NextNodeServer.handleCatchallRenderRequest (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/next-server.js:272:17)
+@y-monitor/web:dev:     at async DevServer.handleRequestImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/base-server.js:818:17)
+@y-monitor/web:dev:     at async /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+@y-monitor/web:dev:     at async Span.traceAsyncFn (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/trace/trace.js:154:20)
+@y-monitor/web:dev:     at async DevServer.handleRequest (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+@y-monitor/web:dev:     at async invokeRender (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js:179:21)
+@y-monitor/web:dev:     at async handleRequest (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js:359:24)
+@y-monitor/web:dev:     at async requestHandlerImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js:383:13)
+@y-monitor/web:dev:     at async Server.requestListener (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/start-server.js:141:13) {
+@y-monitor/web:dev:   code: 'MODULE_NOT_FOUND',
+@y-monitor/web:dev:   requireStack: [
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/build/utils.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-middleware.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/start-server.js'
+@y-monitor/web:dev:   ],
+@y-monitor/web:dev:   page: '/dashboard'
+@y-monitor/web:dev: }
+@y-monitor/web:dev:  ⨯ Error: Cannot find module './135.js'
+@y-monitor/web:dev: Require stack:
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/build/utils.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-middleware.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-reloader-webpack.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js
+@y-monitor/web:dev: - /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/start-server.js
+@y-monitor/web:dev:     at Function.<anonymous> (node:internal/modules/cjs/loader:1394:15)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:55:36
+@y-monitor/web:dev:     at defaultResolveImpl (node:internal/modules/cjs/loader:1050:19)
+@y-monitor/web:dev:     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1055:22)
+@y-monitor/web:dev:     at Function._load (node:internal/modules/cjs/loader:1204:37)
+@y-monitor/web:dev:     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+@y-monitor/web:dev:     at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)
+@y-monitor/web:dev:     at Module.<anonymous> (node:internal/modules/cjs/loader:1480:12)
+@y-monitor/web:dev:     at mod.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:65:28)
+@y-monitor/web:dev:     at require (node:internal/modules/helpers:135:16)
+@y-monitor/web:dev:     at __webpack_require__.f.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:198:28)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:111:40
+@y-monitor/web:dev:     at Array.reduce (<anonymous>)
+@y-monitor/web:dev:     at __webpack_require__.e (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:110:67)
+@y-monitor/web:dev:     at Array.map (<anonymous>)
+@y-monitor/web:dev:     at __webpack_require__.X (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js:162:22)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/pages/_document.js:1:335
+@y-monitor/web:dev:     at Object.<anonymous> (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/pages/_document.js:1:376)
+@y-monitor/web:dev:     at Module._compile (node:internal/modules/cjs/loader:1723:14)
+@y-monitor/web:dev:     at Object..js (node:internal/modules/cjs/loader:1888:10)
+@y-monitor/web:dev:     at Module.load (node:internal/modules/cjs/loader:1458:32)
+@y-monitor/web:dev:     at Function._load (node:internal/modules/cjs/loader:1275:12)
+@y-monitor/web:dev:     at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+@y-monitor/web:dev:     at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)
+@y-monitor/web:dev:     at Module.<anonymous> (node:internal/modules/cjs/loader:1480:12)
+@y-monitor/web:dev:     at mod.require (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require-hook.js:65:28)
+@y-monitor/web:dev:     at require (node:internal/modules/helpers:135:16)
+@y-monitor/web:dev:     at requirePage (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js:109:84)
+@y-monitor/web:dev:     at /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js:72:65
+@y-monitor/web:dev:     at async Promise.all (index 0)
+@y-monitor/web:dev:     at async loadComponentsImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js:71:33)
+@y-monitor/web:dev:     at async DevServer.findPageComponentsImpl (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/next-server.js:714:36) {
+@y-monitor/web:dev:   code: 'MODULE_NOT_FOUND',
+@y-monitor/web:dev:   requireStack: [
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/webpack-runtime.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/web/.next/server/app/dashboard/page.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/require.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/load-components.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/build/utils.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-middleware.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/dev/hot-reloader-webpack.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/router-server.js',
+@y-monitor/web:dev:     '/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/node_modules/next/dist/server/lib/start-server.js'
+@y-monitor/web:dev:   ]
+@y-monitor/web:dev: }
+@y-monitor/web:dev:  GET /dashboard 500 in 1426ms
+@y-monitor/web:dev:  ○ Compiling /_not-found ...
+@y-monitor/web:dev:  ✓ Compiled /_not-found in 1143ms (2174 modules)
+@y-monitor/web:dev:  GET /_next/static/chunks/fallback/webpack.js 404 in 1470ms
+@y-monitor/web:dev:  GET /_next/static/chunks/fallback/main.js 404 in 1465ms
+@y-monitor/web:dev:  GET /_next/static/chunks/fallback/react-refresh.js 404 in 1471ms
+@y-monitor/web:dev:  GET /_next/static/chunks/fallback/pages/_app.js 404 in 212ms
+@y-monitor/web:dev:  GET /_next/static/chunks/fallback/pages/_error.js 404 in 209ms
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:20:00.070Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 61ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:20:00.071Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:20:00.073Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 62ms {"context":"SensorsService","timestamp":"2025-07-21T18:20:00.073Z"}
+@y-monitor/web:dev:  ✓ Compiled in 1767ms (2188 modules)
+@y-monitor/web:dev:  ✓ Compiled in 2s (2188 modules)
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:22:00.047Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 3ms {"context":"SensorsService","timestamp":"2025-07-21T18:22:00.048Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:24:00.050Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 4ms {"context":"SensorsService","timestamp":"2025-07-21T18:24:00.051Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:25:00.045Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 4ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:25:00.046Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:26:00.093Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 50ms {"context":"SensorsService","timestamp":"2025-07-21T18:26:00.093Z"}
+@y-monitor/api:dev: [2J[3J[H[[90m15:26:27[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:26:30[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:26:40[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:26:41[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:26:49[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:26:50[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:26:57[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:26:57[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:27:16[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:27:17[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/web:dev:  ✓ Compiled in 1424ms (2185 modules)
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:28:00.044Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 3ms {"context":"SensorsService","timestamp":"2025-07-21T18:28:00.044Z"}
+@y-monitor/web:dev:  ✓ Compiled in 404ms (1174 modules)
+@y-monitor/web:dev:  ✓ Compiled in 1552ms (2185 modules)
+@y-monitor/web:dev:  ✓ Compiled in 989ms (2185 modules)
+@y-monitor/web:dev:  ✓ Compiled in 1204ms (2185 modules)
+@y-monitor/web:dev:  ✓ Compiled in 1812ms (2189 modules)
+@y-monitor/api:dev: [2J[3J[H[[90m15:29:13[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:29:13[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:29:15[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:29:15[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:29:24[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:29:25[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:29:25[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m18[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m18[0m       ip: '10.248.8.26',
+@y-monitor/api:dev: [7m  [0m [91m      ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m124[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m124[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:29:25[0m] Found 2 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [32minfo[39m: Starting interface poll for 0 devices {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:30:00.045Z"}
+@y-monitor/api:dev: [32minfo[39m: Interface polling completed in 4ms {"context":"InterfaceMonitoringService","timestamp":"2025-07-21T18:30:00.045Z"}
+@y-monitor/api:dev: [32minfo[39m: Starting sensor polling for 0 devices {"context":"SensorsService","timestamp":"2025-07-21T18:30:00.067Z"}
+@y-monitor/api:dev: [32minfo[39m: Sensor polling completed in 25ms {"context":"SensorsService","timestamp":"2025-07-21T18:30:00.067Z"}
+@y-monitor/api:dev: [2J[3J[H[[90m15:30:07[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [96msrc/snmp/services/device-snmp.service.ts[0m:[93m123[0m:[93m9[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ip' does not exist in type 'SNMPDevice'.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [7m123[0m         ip: device.ip,
+@y-monitor/api:dev: [7m   [0m [91m        ~~[0m
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:30:08[0m] Found 1 error. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [2J[3J[H[[90m15:30:13[0m] File change detected. Starting incremental compilation...
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [[90m15:30:13[0m] Found 0 errors. Watching for file changes.
+@y-monitor/api:dev: 
+@y-monitor/api:dev: [32minfo[39m: Starting Nest application... {"context":"NestFactory","timestamp":"2025-07-21T18:30:16.078Z"}
+@y-monitor/api:dev: [32minfo[39m: AppModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.110Z"}
+@y-monitor/api:dev: [32minfo[39m: BullModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.111Z"}
+@y-monitor/api:dev: [32minfo[39m: PrismaModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.112Z"}
+@y-monitor/api:dev: [32minfo[39m: PassportModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.112Z"}
+@y-monitor/api:dev: [32minfo[39m: ThrottlerModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.113Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigHostModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.114Z"}
+@y-monitor/api:dev: [32minfo[39m: WinstonModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.114Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.114Z"}
+@y-monitor/api:dev: [32minfo[39m: HealthModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.115Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.116Z"}
+@y-monitor/api:dev: [32minfo[39m: ConfigModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.116Z"}
+@y-monitor/api:dev: [32minfo[39m: ScheduleModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.117Z"}
+@y-monitor/api:dev: [32minfo[39m: InfluxDBModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.121Z"}
+@y-monitor/api:dev: [32minfo[39m: JwtModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.121Z"}
+@y-monitor/api:dev: [32minfo[39m: UsersModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.122Z"}
+@y-monitor/api:dev: [32minfo[39m: AlertsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.122Z"}
+@y-monitor/api:dev: [32minfo[39m: ReportsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.122Z"}
+@y-monitor/api:dev: [32minfo[39m: NetworkModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.123Z"}
+@y-monitor/api:dev: [32minfo[39m: DevicesModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.124Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.124Z"}
+@y-monitor/api:dev: [32minfo[39m: SNMPModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.125Z"}
+@y-monitor/api:dev: [32minfo[39m: SensorsModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.126Z"}
+@y-monitor/api:dev: [32minfo[39m: MonitoringModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.126Z"}
+@y-monitor/api:dev: [32minfo[39m: AuthModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.126Z"}
+@y-monitor/api:dev: [32minfo[39m: DashboardModule dependencies initialized {"context":"InstanceLoader","timestamp":"2025-07-21T18:30:16.127Z"}
+@y-monitor/api:dev: [32minfo[39m: AuthController {/api/v1/auth}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.175Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/login, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.181Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/register, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.181Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/logout, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.182Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/refresh, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.182Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/me, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.183Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/verify, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.183Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/change-password, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.184Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.184Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions/:sessionId, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.185Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/auth/sessions, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.185Z"}
+@y-monitor/api:dev: [32minfo[39m: UsersController {/api/v1/users}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.185Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.186Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.186Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.187Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.187Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.187Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/preferences, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.188Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/deactivate, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.188Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id/activate, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.188Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/users/:id, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.189Z"}
+@y-monitor/api:dev: [32minfo[39m: DevicesController {/api/v1/devices}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.189Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.190Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.190Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/test-ubiquiti, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.190Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/add-ubiquiti, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.190Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/:id/poll, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.195Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/devices/:id, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.195Z"}
+@y-monitor/api:dev: [32minfo[39m: SNMPController {/api/v1/snmp}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.195Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/get, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.196Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/walk, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.196Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/bulk-walk, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.196Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/set, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.196Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/test-connection, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.197Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.197Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/cache/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.197Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/cache/clear, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.197Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/snmp/oids/common, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.198Z"}
+@y-monitor/api:dev: [32minfo[39m: MonitoringController {/api/v1/monitoring}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.198Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/monitoring/metrics, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.198Z"}
+@y-monitor/api:dev: [32minfo[39m: AlertsController {/api/v1/alerts}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.199Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.199Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/active, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.199Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.200Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/:id/acknowledge, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.200Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/alerts/:id/resolve, PATCH} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.200Z"}
+@y-monitor/api:dev: [32minfo[39m: DashboardController {/api/v1/dashboard}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.200Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/dashboard, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.201Z"}
+@y-monitor/api:dev: [32minfo[39m: ReportsController {/api/v1/reports}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.201Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/availability, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.201Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/performance, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.202Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/reports/alerts, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.202Z"}
+@y-monitor/api:dev: [32minfo[39m: NetworkController {/api/v1/network}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.203Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/topology, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.205Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/map, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.205Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/network/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.205Z"}
+@y-monitor/api:dev: [32minfo[39m: HealthController {/api/v1/health}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.206Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.206Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health/ready, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.206Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/health/live, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.207Z"}
+@y-monitor/api:dev: [32minfo[39m: DiscoveryController {/api/v1/discovery}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.207Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/discover, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.207Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/discover/incremental, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.208Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/session/:sessionId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.208Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/session/:sessionId, DELETE} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.208Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.208Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/detect-os, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.209Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/history, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.209Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/schedule, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.209Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/stats, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.210Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/templates/:os, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.210Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules/:moduleName/enable, PUT} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.211Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/modules/:moduleName/disable, PUT} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.211Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/discovery/device/:deviceId/module/:moduleName, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.211Z"}
+@y-monitor/api:dev: [32minfo[39m: SensorsController {/api/v1/sensors}: {"context":"RoutesResolver","timestamp":"2025-07-21T18:30:16.211Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/device/:deviceId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.212Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/history/:deviceId/:sensorId, GET} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.212Z"}
+@y-monitor/api:dev: [32minfo[39m: Mapped {/api/v1/sensors/discover/:deviceId, POST} route {"context":"RouterExplorer","timestamp":"2025-07-21T18:30:16.213Z"}
+@y-monitor/api:dev: [32minfo[39m: Redis connected for SNMP cache {"context":"SNMPCacheService","timestamp":"2025-07-21T18:30:16.231Z"}
+@y-monitor/api:dev: [32minfo[39m: Redis connected for SNMP cache {"context":"SNMPCacheService","timestamp":"2025-07-21T18:30:16.232Z"}
+@y-monitor/api:dev: [32minfo[39m: Connected to InfluxDB successfully {"context":"InfluxDBService","timestamp":"2025-07-21T18:30:16.335Z"}
+@y-monitor/api:dev: [32minfo[39m: Nest application successfully started {"context":"NestApplication","timestamp":"2025-07-21T18:30:16.350Z"}
+@y-monitor/api:dev: 🚀 Y Monitor API running on http://localhost:3006
+@y-monitor/api:dev: 📚 Documentation available at http://localhost:3006/api
+@y-monitor/api:dev: [33mwarn[39m: InfluxDB query test failed: connect ECONNREFUSED 127.0.0.1:8086 {"context":"InfluxDBService","timestamp":"2025-07-21T18:30:16.354Z"}
+@y-monitor/web:dev:  ○ Compiling / ...
+@y-monitor/web:dev:  ✓ Compiled / in 1010ms (1017 modules)
+@y-monitor/web:dev:  GET / 200 in 1259ms
+@y-monitor/web:dev:  ○ Compiling /_not-found ...
+@y-monitor/web:dev:  ✓ Compiled /_not-found in 1715ms (2182 modules)
+@y-monitor/web:dev:  GET /_next/static/chunks/app-pages-internals.js 404 in 2177ms
+@y-monitor/web:dev:  GET /_next/static/chunks/main-app.js?v=1753122662261 404 in 2185ms
+@y-monitor/web:dev:  GET /_next/static/chunks/app/page.js 404 in 2175ms
+@y-monitor/api:dev: Terminated
+@y-monitor/api:dev: npm error Lifecycle script `dev` failed with error:
+@y-monitor/api:dev: npm error code 143
+@y-monitor/api:dev: npm error path /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/api
+@y-monitor/api:dev: npm error workspace @y-monitor/api@1.0.0
+@y-monitor/api:dev: npm error location /home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/api
+@y-monitor/api:dev: npm error command failed
+@y-monitor/api:dev: npm error command sh -c npm run start:dev
+@y-monitor/api:dev: ERROR: command finished with error: command (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/api) /home/redes-pc/.nvm/versions/node/v23.7.0/bin/npm run dev exited (143)
+@y-monitor/api#dev: command (/home/redes-pc/PROJETOS/ymonitor_new/Ymonitor/apps/api) /home/redes-pc/.nvm/versions/node/v23.7.0/bin/npm run dev exited (143)
+
+ Tasks:    0 successful, 2 total
+Cached:    0 cached, 2 total
+  Time:    1h5m53.118s 
+Failed:    @y-monitor/api#dev
+
+ ERROR  run failed: command  exited (143)

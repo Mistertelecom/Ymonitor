@@ -310,7 +310,7 @@ export class SensorsService {
         where: {
           deviceId: reading.deviceId,
           message: { contains: message },
-          state: 'ACTIVE',
+          state: 'open',
         },
       });
 
@@ -319,11 +319,11 @@ export class SensorsService {
       }
 
       // Determine severity based on sensor type and value
-      let severity = 'WARNING';
+      let severity = 'warning';
       if (reading.sensorType === 'TEMPERATURE' && reading.value > 80) {
-        severity = 'CRITICAL';
+        severity = 'critical';
       } else if (reading.sensorType === 'VOLTAGE' && reading.value < 5) {
-        severity = 'CRITICAL';
+        severity = 'critical';
       }
 
       // Create new alert
@@ -332,7 +332,7 @@ export class SensorsService {
           deviceId: reading.deviceId,
           ruleId: 'sensor-monitoring', // This would be a proper rule ID
           severity: severity as any,
-          state: 'ACTIVE',
+          state: 'open',
           message: message,
           details: {
             sensorId: reading.sensorId,
@@ -519,7 +519,7 @@ export class SensorsService {
     switch (sensorType) {
       case 'TEMPERATURE':
         // Some devices report in tenths of degrees
-        if (numValue > 1000) {
+        if (numValue > 100) {
           numValue = numValue / 10;
         }
         break;

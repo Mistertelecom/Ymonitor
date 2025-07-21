@@ -29,6 +29,10 @@ export class InfluxDBService implements OnModuleInit {
   private queryApi: QueryApi;
   private readonly bucket: string;
   private readonly org: string;
+  private readonly defaultTags = {
+    application: 'y-monitor',
+    version: '1.0.0',
+  };
 
   constructor(private configService: ConfigService) {
     const url = this.configService.get<string>('INFLUXDB_URL', 'http://localhost:8086');
@@ -43,12 +47,6 @@ export class InfluxDBService implements OnModuleInit {
 
     this.writeApi = this.client.getWriteApi(this.org, this.bucket);
     this.queryApi = this.client.getQueryApi(this.org);
-
-    // Configure write options
-    this.writeApi.useDefaultTags({
-      application: 'y-monitor',
-      version: '1.0.0',
-    });
   }
 
   async onModuleInit() {
@@ -57,7 +55,8 @@ export class InfluxDBService implements OnModuleInit {
       await this.testConnection();
       this.logger.log('Connected to InfluxDB successfully');
     } catch (error) {
-      this.logger.error(`Failed to connect to InfluxDB: ${error.message}`);
+      this.logger.warn(`Failed to connect to InfluxDB: ${error.message}`);
+      this.logger.warn('InfluxDB is optional for development - continuing without it');
     }
   }
 
@@ -73,7 +72,8 @@ export class InfluxDBService implements OnModuleInit {
       await this.queryApi.queryRows(query, {
         next: () => {}, // We just want to test the connection
         error: (error) => {
-          throw error;
+          // Don't throw error during connection test
+          this.logger.warn(`InfluxDB query test failed: ${error.message}`);
         },
         complete: () => {},
       });
@@ -90,7 +90,7 @@ export class InfluxDBService implements OnModuleInit {
    */
   async writeInterfaceMetrics(metrics: InterfaceMetrics): Promise<void> {
     try {
-      const point = new Point('interface_metrics')
+      const point = this.addDefaultTags(new Point('interface_metrics'))
         .tag('device_id', metrics.deviceId)
         .tag('port_id', metrics.portId)
         .tag('if_index', metrics.ifIndex.toString())
@@ -154,7 +154,7 @@ export class InfluxDBService implements OnModuleInit {
     timestamp?: Date
   ): Promise<void> {
     try {
-      const point = new Point('device_metrics')
+      const point = this.addDefaultTags(new Point('device_metrics'))
         .tag('device_id', deviceId)
         .tag('hostname', hostname)
         .tag('status', metrics.status)
@@ -195,7 +195,7 @@ export class InfluxDBService implements OnModuleInit {
     timestamp?: Date
   ): Promise<void> {
     try {
-      const point = new Point('sensor_metrics')
+      const point = this.addDefaultTags(new Point('sensor_metrics'))
         .tag('device_id', deviceId)
         .tag('sensor_id', sensorId)
         .tag('sensor_type', sensorType)
@@ -225,7 +225,7 @@ export class InfluxDBService implements OnModuleInit {
     timestamp?: Date
   ): Promise<void> {
     try {
-      const point = new Point('alert_metrics')
+      const point = this.addDefaultTags(new Point('alert_metrics'))
         .tag('device_id', deviceId)
         .tag('alert_type', alertType)
         .tag('severity', severity)
@@ -374,6 +374,16 @@ export class InfluxDBService implements OnModuleInit {
   }
 
   /**
+   * Add default tags to a point
+   */
+  private addDefaultTags(point: Point): Point {
+    Object.entries(this.defaultTags).forEach(([key, value]) => {
+      point.tag(key, value);
+    });
+    return point;
+  }
+
+  /**
    * Execute a Flux query and return results
    */
   private async executeQuery(query: string): Promise<any[]> {
@@ -405,7 +415,7 @@ export class InfluxDBService implements OnModuleInit {
   async writePoints(points: TimeSeriesPoint[]): Promise<void> {
     try {
       const influxPoints = points.map(point => {
-        const p = new Point(point.measurement);
+        const p = this.addDefaultTags(new Point(point.measurement));
         
         // Add tags
         Object.entries(point.tags).forEach(([key, value]) => {

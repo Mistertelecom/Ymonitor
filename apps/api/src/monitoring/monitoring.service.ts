@@ -83,12 +83,12 @@ export class MonitoringService {
 
   private async getAlertMetrics() {
     const [total, critical, warning] = await Promise.all([
-      this.prisma.alert.count({ where: { state: 'ACTIVE' } }),
+      this.prisma.alert.count({ where: { state: 'open' } }),
       this.prisma.alert.count({
-        where: { state: 'ACTIVE', severity: 'CRITICAL' },
+        where: { state: 'open', severity: 'critical' },
       }),
       this.prisma.alert.count({
-        where: { state: 'ACTIVE', severity: 'WARNING' },
+        where: { state: 'open', severity: 'warning' },
       }),
     ]);
 

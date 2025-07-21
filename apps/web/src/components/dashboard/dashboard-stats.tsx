@@ -2,14 +2,12 @@
 
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { useAuth } from '@/contexts/auth-context';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { StatCard } from '@/components/ui/stat-card';
 import { 
   Activity, 
   AlertTriangle, 
-  CheckCircle, 
-  Clock, 
   Network, 
   Server, 
   TrendingUp, 
@@ -47,32 +45,35 @@ interface DashboardStats {
   };
 }
 
-async function fetchDashboardStats(): Promise<DashboardStats> {
-  const response = await fetch('/api/dashboard');
-  if (!response.ok) {
-    throw new Error('Failed to fetch dashboard stats');
-  }
-  return response.json();
+async function fetchDashboardStats(authHeaders: Record<string, string>): Promise<DashboardStats> {
+  const { apiClient, API_ENDPOINTS } = await import('@/lib/api-client');
+  return apiClient.get<DashboardStats>(API_ENDPOINTS.DASHBOARD_STATS, authHeaders);
 }
 
 export function DashboardStats() {
+  const { getAuthHeaders } = useAuth();
+  
   const { data: stats, isLoading, error } = useQuery({
     queryKey: ['dashboard-stats'],
-    queryFn: fetchDashboardStats,
+    queryFn: () => fetchDashboardStats(getAuthHeaders()),
     refetchInterval: 30000, // Refresh every 30 seconds
   });
 
   if (isLoading) {
     return (
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="contents">
         {[1, 2, 3, 4].map((i) => (
-          <Card key={i}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Loading...</CardTitle>
-              <div className="h-4 w-4 bg-gray-200 rounded animate-pulse" />
+          <Card key={i} className="card-elevated">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+              <div className="h-4 w-20 bg-muted rounded-lg loading-shimmer" />
+              <div className="h-10 w-10 gradient-secondary rounded-xl animate-pulse" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold bg-gray-200 h-8 rounded animate-pulse" />
+              <div className="space-y-4">
+                <div className="h-10 w-20 bg-muted rounded-lg loading-shimmer" />
+                <div className="h-4 w-32 bg-muted rounded-lg loading-shimmer" />
+                <div className="h-2 w-full bg-muted rounded-full loading-shimmer" />
+              </div>
             </CardContent>
           </Card>
         ))}
@@ -82,112 +83,108 @@ export function DashboardStats() {
 
   if (error) {
     return (
-      <Card>
+      <Card className="card-elevated border-red-200/50 dark:border-red-800/50">
         <CardContent className="pt-6">
-          <div className="flex items-center space-x-2 text-red-600">
-            <XCircle className="h-5 w-5" />
-            <span>Failed to load dashboard statistics</span>
+          <div className="flex items-center space-x-4 text-destructive">
+            <div className="p-3 bg-destructive/10 rounded-xl">
+              <XCircle className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="font-semibold">Failed to load dashboard statistics</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Please check your connection and try again
+              </p>
+            </div>
           </div>
         </CardContent>
       </Card>
     );
   }
 
-  const { overview } = stats || { overview: { devices: {}, alerts: {}, network: {}, users: {} } };
+  const { overview } = stats || { 
+    overview: { 
+      devices: { total: 0, online: 0, offline: 0, warning: 0, availability: 0 }, 
+      alerts: { total: 0, critical: 0, warning: 0, info: 0, acknowledged: 0 }, 
+      network: { totalBandwidth: 0, utilizationPercent: 0, interfacesMonitored: 0, errors: 0 }, 
+      users: { active: 0, total: 0, onlineNow: 0 } 
+    } 
+  };
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      {/* Devices Overview */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Devices</CardTitle>
-          <Server className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{overview.devices?.total || 0}</div>
-          <div className="flex items-center space-x-2 text-xs text-muted-foreground mt-2">
-            <div className="flex items-center space-x-1">
-              <CheckCircle className="h-3 w-3 text-green-500" />
-              <span>{overview.devices?.online || 0} online</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <XCircle className="h-3 w-3 text-red-500" />
-              <span>{overview.devices?.offline || 0} offline</span>
-            </div>
-          </div>
-          <Progress 
-            value={overview.devices?.availability || 0} 
-            className="mt-2 h-2"
-          />
-          <p className="text-xs text-muted-foreground mt-1">
-            {(overview.devices?.availability || 0).toFixed(1)}% availability
-          </p>
-        </CardContent>
-      </Card>
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <StatCard
+        title="Devices"
+        value={overview.devices?.total || 0}
+        icon={Server}
+        iconColor="gradient-primary"
+        hoverColor="primary"
+        progress={{
+          value: overview.devices?.availability || 0,
+          label: `${(overview.devices?.availability || 0).toFixed(1)}% availability`
+        }}
+        badges={[
+          {
+            label: `${overview.devices?.online || 0} online`,
+            className: 'status-up'
+          },
+          {
+            label: `${overview.devices?.offline || 0} offline`, 
+            className: 'status-down'
+          }
+        ]}
+      />
 
-      {/* Alerts Overview */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Active Alerts</CardTitle>
-          <AlertTriangle className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{overview.alerts?.total || 0}</div>
-          <div className="flex items-center space-x-2 text-xs mt-2">
-            <Badge variant="destructive" className="text-xs px-1">
-              {overview.alerts?.critical || 0} Critical
-            </Badge>
-            <Badge variant="secondary" className="text-xs px-1">
-              {overview.alerts?.warning || 0} Warning
-            </Badge>
-          </div>
-          <p className="text-xs text-muted-foreground mt-2">
-            {overview.alerts?.acknowledged || 0} acknowledged
-          </p>
-        </CardContent>
-      </Card>
+      <StatCard
+        title="Active Alerts"
+        value={overview.alerts?.total || 0}
+        icon={AlertTriangle}
+        iconColor="bg-gradient-to-r from-amber-500 to-orange-500"
+        hoverColor="amber"
+        badges={[
+          {
+            label: `${overview.alerts?.critical || 0} Critical`,
+            className: 'status-down'
+          },
+          {
+            label: `${overview.alerts?.warning || 0} Warning`,
+            className: 'status-warning'
+          }
+        ]}
+        footer={`${overview.alerts?.acknowledged || 0} acknowledged`}
+      />
 
-      {/* Network Overview */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Network</CardTitle>
-          <Network className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{overview.network?.interfacesMonitored || 0}</div>
-          <div className="text-xs text-muted-foreground">Interfaces monitored</div>
-          <div className="flex items-center space-x-2 text-xs mt-2">
-            <div className="flex items-center space-x-1">
-              <TrendingUp className="h-3 w-3 text-blue-500" />
-              <span>{(overview.network?.utilizationPercent || 0).toFixed(1)}% utilization</span>
-            </div>
-          </div>
-          <p className="text-xs text-red-600 mt-1">
-            {overview.network?.errors || 0} errors detected
-          </p>
-        </CardContent>
-      </Card>
+      <StatCard
+        title="Network"
+        value={overview.network?.interfacesMonitored || 0}
+        description="Interfaces monitored"
+        icon={Network}
+        iconColor="bg-gradient-to-r from-emerald-500 to-teal-500"
+        hoverColor="emerald"
+        badges={[
+          {
+            label: `${(overview.network?.utilizationPercent || 0).toFixed(1)}% utilization`,
+            className: 'status-up'
+          }
+        ]}
+        footer={`${overview.network?.errors || 0} errors detected`}
+        footerClassName="text-destructive"
+      />
 
-      {/* Users Overview */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Users</CardTitle>
-          <Users className="h-4 w-4 text-muted-foreground" />
-        </CardHeader>
-        <CardContent>
-          <div className="text-2xl font-bold">{overview.users?.active || 0}</div>
-          <div className="text-xs text-muted-foreground">Active users</div>
-          <div className="flex items-center space-x-2 text-xs mt-2">
-            <div className="flex items-center space-x-1">
-              <Activity className="h-3 w-3 text-green-500" />
-              <span>{overview.users?.onlineNow || 0} online now</span>
-            </div>
-          </div>
-          <p className="text-xs text-muted-foreground mt-1">
-            {overview.users?.total || 0} total users
-          </p>
-        </CardContent>
-      </Card>
+      <StatCard
+        title="Users"
+        value={overview.users?.active || 0}
+        description="Active users"
+        icon={Users}
+        iconColor="bg-gradient-to-r from-purple-500 to-pink-500"
+        hoverColor="purple"
+        badges={[
+          {
+            label: `${overview.users?.onlineNow || 0} online now`,
+            className: 'status-up'
+          }
+        ]}
+        footer={`${overview.users?.total || 0} total users`}
+      />
     </div>
   );
 }

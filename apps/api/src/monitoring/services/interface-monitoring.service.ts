@@ -299,14 +299,14 @@ export class InterfaceMonitoringService {
 
     // Create alerts if any
     for (const alertMessage of alerts) {
-      const severity = alertMessage.includes('critical') ? 'CRITICAL' : 'WARNING';
+      const severity = alertMessage.includes('critical') ? 'critical' : 'warning';
       
       // Check if similar alert already exists
       const existingAlert = await this.prisma.alert.findFirst({
         where: {
           deviceId: metric.deviceId,
           message: { contains: alertMessage.split(':')[0] },
-          state: 'ACTIVE',
+          state: 'open',
         },
       });
 
@@ -316,7 +316,7 @@ export class InterfaceMonitoringService {
             deviceId: metric.deviceId,
             ruleId: 'interface-monitoring',
             severity,
-            state: 'ACTIVE',
+            state: 'open',
             message: alertMessage,
             details: {
               portId: metric.portId,
@@ -342,7 +342,7 @@ export class InterfaceMonitoringService {
         where: {
           deviceId: metric.deviceId,
           message: { contains: message },
-          state: 'ACTIVE',
+          state: 'open',
         },
       });
 
@@ -355,8 +355,8 @@ export class InterfaceMonitoringService {
         data: {
           deviceId: metric.deviceId,
           ruleId: 'interface-monitoring', // This would be a proper rule ID
-          severity: 'WARNING',
-          state: 'ACTIVE',
+          severity: 'warning',
+          state: 'open',
           message: message,
           details: {
             portId: metric.portId,

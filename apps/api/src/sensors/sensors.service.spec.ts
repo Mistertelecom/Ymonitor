@@ -295,8 +295,8 @@ describe('SensorsService', () => {
         data: {
           deviceId: 'device-1',
           ruleId: 'sensor-monitoring',
-          severity: 'CRITICAL',
-          state: 'ACTIVE',
+          severity: 'critical',
+          state: 'open',
           message: expect.stringContaining('critically high'),
           details: expect.objectContaining({
             sensorId: 'sensor-1',
@@ -320,7 +320,7 @@ describe('SensorsService', () => {
 
       expect(mockPrismaService.alert.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
-          severity: 'WARNING',
+          severity: 'warning',
           message: expect.stringContaining('above warning threshold'),
         }),
       });
@@ -398,21 +398,17 @@ describe('SensorsService', () => {
   describe('value transformations', () => {
     it('should transform temperature values correctly', () => {
       // Test private method through reflection
-      const transformSensorValue = service['transformSensorValue'];
-      
-      expect(transformSensorValue(650, 'TEMPERATURE')).toBe(65);
-      expect(transformSensorValue(25, 'TEMPERATURE')).toBe(25);
+      expect((service as any).transformSensorValue(650, 'TEMPERATURE')).toBe(65);
+      expect((service as any).transformSensorValue(25, 'TEMPERATURE')).toBe(25);
     });
 
     it('should transform voltage values correctly', () => {
-      const transformSensorValue = service['transformSensorValue'];
-      
-      expect(transformSensorValue(12000, 'VOLTAGE')).toBe(12);
-      expect(transformSensorValue(12, 'VOLTAGE')).toBe(12);
+      expect((service as any).transformSensorValue(12000, 'VOLTAGE')).toBe(12);
+      expect((service as any).transformSensorValue(12, 'VOLTAGE')).toBe(12);
     });
 
     it('should return correct sensor units', () => {
-      const getSensorUnit = service['getSensorUnit'];
+      const getSensorUnit = (service as any).getSensorUnit.bind(service);
       
       expect(getSensorUnit('TEMPERATURE')).toBe('°C');
       expect(getSensorUnit('HUMIDITY')).toBe('%');

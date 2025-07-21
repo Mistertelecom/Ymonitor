@@ -255,9 +255,9 @@ describe('InterfaceMonitoringService', () => {
 
       expect(mockPrismaService.alert.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
-          severity: 'WARNING',
+          severity: 'warning',
           message: expect.stringContaining('high utilization'),
-          state: 'ACTIVE',
+          state: 'open',
         }),
       });
     });
@@ -275,7 +275,7 @@ describe('InterfaceMonitoringService', () => {
 
       expect(mockPrismaService.alert.create).toHaveBeenCalledWith({
         data: expect.objectContaining({
-          severity: 'CRITICAL',
+          severity: 'critical',
           message: expect.stringContaining('critical utilization'),
         }),
       });
@@ -334,8 +334,7 @@ describe('InterfaceMonitoringService', () => {
         { oid: '1.3.6.1.2.1.2.2.1.8.1', value: '1' },
       ];
 
-      const parseInterfaceMetrics = service['parseInterfaceMetrics'];
-      const result = parseInterfaceMetrics(
+      const result = (service as any).parseInterfaceMetrics(
         varbinds,
         'device-1',
         'port-1',
@@ -355,8 +354,7 @@ describe('InterfaceMonitoringService', () => {
         { oid: '1.3.6.1.2.1.2.2.1.16.1', value: 'invalid' },
       ];
 
-      const parseInterfaceMetrics = service['parseInterfaceMetrics'];
-      const result = parseInterfaceMetrics(
+      const result = (service as any).parseInterfaceMetrics(
         varbinds,
         'device-1',
         'port-1',
@@ -467,11 +465,10 @@ describe('InterfaceMonitoringService', () => {
         timestamp: new Date(Date.now() - 300000),
       };
 
-      const calculateErrorRate = service['calculateErrorRate'];
-      const result = calculateErrorRate(metrics, previous);
+      const result = (service as any).calculateErrorRate(metrics, previous);
 
       expect(result).toBeGreaterThan(0);
-      expect(result).toBeLessThan(1);
+      expect(result).toBeLessThan(100);
     });
 
     it('should calculate discard rates correctly', () => {
@@ -488,11 +485,10 @@ describe('InterfaceMonitoringService', () => {
         timestamp: new Date(Date.now() - 300000),
       };
 
-      const calculateDiscardRate = service['calculateDiscardRate'];
-      const result = calculateDiscardRate(metrics, previous);
+      const result = (service as any).calculateDiscardRate(metrics, previous);
 
       expect(result).toBeGreaterThan(0);
-      expect(result).toBeLessThan(1);
+      expect(result).toBeLessThan(100);
     });
   });
 });

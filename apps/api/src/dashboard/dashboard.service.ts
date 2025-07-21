@@ -182,11 +182,11 @@ export class DashboardService {
       this.prisma.device.count({ where: { status: 'UP' } }),
       this.prisma.device.count({ where: { status: 'DOWN' } }),
       this.prisma.device.count({ where: { status: 'WARNING' } }),
-      this.prisma.alert.count({ where: { state: 'ACTIVE' } }),
-      this.prisma.alert.count({ where: { state: 'ACTIVE', severity: 'CRITICAL' } }),
-      this.prisma.alert.count({ where: { state: 'ACTIVE', severity: 'WARNING' } }),
-      this.prisma.alert.count({ where: { state: 'ACTIVE', severity: 'INFO' } }),
-      this.prisma.alert.count({ where: { state: 'ACKNOWLEDGED' } }),
+      this.prisma.alert.count({ where: { state: 'open' } }),
+      this.prisma.alert.count({ where: { state: 'open', severity: 'critical' } }),
+      this.prisma.alert.count({ where: { state: 'open', severity: 'warning' } }),
+      this.prisma.alert.count({ where: { state: 'open', severity: 'info' } }),
+      this.prisma.alert.count({ where: { state: 'acknowledged' } }),
       this.prisma.user.count(),
       this.prisma.user.count({ where: { isActive: true } }),
     ]);
@@ -286,7 +286,7 @@ export class DashboardService {
     
     // Simple health checks
     const criticalAlerts = await this.prisma.alert.count({
-      where: { state: 'ACTIVE', severity: 'CRITICAL' },
+      where: { state: 'open', severity: 'critical' },
     });
     
     const offlineDevices = await this.prisma.device.count({
@@ -360,25 +360,25 @@ export class DashboardService {
         this.prisma.alert.count({
           where: {
             timestamp: { gte: startTime, lte: endTime },
-            severity: 'CRITICAL',
+            severity: 'critical',
           },
         }),
         this.prisma.alert.count({
           where: {
             timestamp: { gte: startTime, lte: endTime },
-            severity: 'WARNING',
+            severity: 'warning',
           },
         }),
         this.prisma.alert.count({
           where: {
             timestamp: { gte: startTime, lte: endTime },
-            severity: 'INFO',
+            severity: 'info',
           },
         }),
         this.prisma.alert.count({
           where: {
             timestamp: { gte: startTime, lte: endTime },
-            state: 'RESOLVED',
+            state: 'resolved',
           },
         }),
       ]);

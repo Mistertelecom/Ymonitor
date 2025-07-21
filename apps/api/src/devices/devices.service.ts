@@ -30,7 +30,7 @@ export class DevicesService {
         sensors: true,
         services: true,
         alerts: {
-          where: { state: 'ACTIVE' },
+          where: { state: 'open' },
           orderBy: { timestamp: 'desc' },
           take: 10,
         },

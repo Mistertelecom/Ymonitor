@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import './globals.css';
@@ -10,10 +10,11 @@ export const metadata: Metadata = {
   description: 'Advanced network monitoring and management system',
   keywords: ['network monitoring', 'SNMP', 'infrastructure', 'alerts', 'performance'],
   authors: [{ name: 'Y Monitor Team' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#0ea5e9' },
     { media: '(prefers-color-scheme: dark)', color: '#0284c7' },

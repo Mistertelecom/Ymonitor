@@ -85,6 +85,16 @@ export class AuthController {
     return this.authService.validateUserById(req.user.sub);
   }
 
+  @Get('verify')
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Verify token and get user info' })
+  @ApiResponse({ status: 200, description: 'Token valid, user info returned' })
+  @ApiResponse({ status: 401, description: 'Invalid token' })
+  async verifyToken(@Request() req) {
+    return this.authService.validateUserById(req.user.sub);
+  }
+
   @Post('change-password')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
