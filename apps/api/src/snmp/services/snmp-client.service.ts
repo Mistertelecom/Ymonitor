@@ -382,7 +382,7 @@ export class SNMPClientService implements ISNMPClient {
       port: device.port || 161,
       retries: device.retries || 3,
       timeout: device.timeout || 5000,
-      transport: device.transport || 'udp',
+      transport: device.transport || 'udp4',
       version: this.mapSNMPVersion(device.version),
     };
 

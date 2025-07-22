@@ -9,7 +9,7 @@ export type SNMPv3AuthProtocol = 'MD5' | 'SHA' | 'SHA224' | 'SHA256' | 'SHA384' 
 
 export type SNMPv3PrivProtocol = 'DES' | 'AES' | 'AES192' | 'AES256' | '3DES';
 
-export type SNMPTransport = 'udp' | 'tcp';
+export type SNMPTransport = 'udp4' | 'udp6' | 'tcp';
 
 export interface SNMPCredentials {
   version: SNMPVersion;

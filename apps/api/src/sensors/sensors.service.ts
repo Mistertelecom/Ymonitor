@@ -581,7 +581,7 @@ export class SensorsService {
       port: device.snmpPort || 161,
       timeout: device.snmpTimeout || 5000,
       retries: device.snmpRetries || 3,
-      transport: 'udp',
+      transport: 'udp4',
       version: device.snmpVersion || 'v2c',
       community: device.snmpCommunity || 'public',
       username: device.snmpUsername,

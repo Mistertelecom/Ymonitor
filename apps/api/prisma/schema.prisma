@@ -137,6 +137,13 @@ model Device {
   alerts   Alert[]
   graphs   DeviceGraph[]
   
+  // New relations
+  networkProtocols    NetworkProtocol[]
+  bgpPeers           BgpPeer[]
+  vlans              Vlan[]
+  macAddresses       MacAddress[]
+  wirelessAccessPoints WirelessAccessPoint[]
+  
   @@unique([hostname])
   @@unique([ip])
   @@map("devices")
@@ -200,6 +207,10 @@ model Port {
   
   // Relations
   device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  // New relations
+  macAddresses MacAddress[]
+  billingPorts BillingPort[]
   
   @@unique([deviceId, ifIndex])
   @@map("ports")
@@ -547,4 +558,312 @@ enum AlertState {
   acknowledged
   resolved
   suppressed
+}
+
+// Network Discovery and Protocols
+model NetworkProtocol {
+  id        String @id @default(cuid())
+  deviceId  String
+  protocol  ProtocolType
+  data      Json
+  enabled   Boolean @default(true)
+  lastUpdated DateTime @default(now())
+  
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, protocol])
+  @@map("network_protocols")
+}
+
+// BGP Peers
+model BgpPeer {
+  id              String @id @default(cuid())
+  deviceId        String
+  peerIp          String
+  peerAs          Int
+  localIp         String
+  localAs         Int
+  state           String @default("Idle")
+  adminStatus     String @default("start")
+  inPrefixes      Int    @default(0)
+  outPrefixes     Int    @default(0)
+  lastUpdate      DateTime?
+  uptime          BigInt?
+  
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, peerIp])
+  @@map("bgp_peers")
+}
+
+// VLANs
+model Vlan {
+  id        String @id @default(cuid())
+  deviceId  String
+  vlanId    Int
+  name      String?
+  type      String?
+  mtu       Int?
+  status    String @default("active")
+  
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, vlanId])
+  @@map("vlans")
+}
+
+// MAC Address Table
+model MacAddress {
+  id          String @id @default(cuid())
+  deviceId    String
+  portId      String?
+  macAddress  String
+  vlanId      Int?
+  ipAddress   String?
+  description String?
+  
+  device Device @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  port   Port?  @relation(fields: [portId], references: [id], onDelete: Cascade)
+  
+  @@unique([deviceId, macAddress, vlanId])
+  @@map("mac_addresses")
+}
+
+// Wireless Access Points
+model WirelessAccessPoint {
+  id          String @id @default(cuid())
+  deviceId    String
+  name        String
+  channel     Int?
+  txpower     Int?
+  radiusServer String?
+  type        String?
+  model       String?
+  
+  device  Device           @relation(fields: [deviceId], references: [id], onDelete: Cascade)
+  clients WirelessClient[]
+  
+  @@unique([deviceId, name])
+  @@map("wireless_access_points")
+}
+
+// Wireless Clients
+model WirelessClient {
+  id          String @id @default(cuid())
+  accessPointId String
+  macAddress  String
+  ipAddress   String?
+  hostname    String?
+  channel     Int?
+  rssi        Int?
+  snr         Float?
+  ccq         Int?
+  txRate      Int?
+  rxRate      Int?
+  uptime      BigInt?
+  txBytes     BigInt?
+  rxBytes     BigInt?
+  lastSeen    DateTime @default(now())
+  
+  accessPoint WirelessAccessPoint @relation(fields: [accessPointId], references: [id], onDelete: Cascade)
+  
+  @@unique([accessPointId, macAddress])
+  @@map("wireless_clients")
+}
+
+// Billing and Usage Tracking
+model BillingAccount {
+  id        String @id @default(cuid())
+  name      String
+  company   String?
+  contact   String?
+  email     String?
+  phone     String?
+  address   String?
+  notes     String?
+  enabled   Boolean @default(true)
+  
+  ports     BillingPort[]
+  invoices  Invoice[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("billing_accounts")
+}
+
+model BillingPort {
+  id        String @id @default(cuid())
+  accountId String
+  portId    String
+  enabled   Boolean @default(true)
+  
+  account BillingAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  port    Port           @relation(fields: [portId], references: [id], onDelete: Cascade)
+  
+  @@unique([accountId, portId])
+  @@map("billing_ports")
+}
+
+model Invoice {
+  id        String @id @default(cuid())
+  accountId String
+  period    String
+  total     Float
+  currency  String @default("USD")
+  status    InvoiceStatus @default(DRAFT)
+  data      Json
+  
+  account BillingAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("invoices")
+}
+
+// System Logs and Audit
+model SystemLog {
+  id        String   @id @default(cuid())
+  level     LogLevel
+  message   String
+  context   Json?
+  userId    String?
+  deviceId  String?
+  ip        String?
+  userAgent String?
+  timestamp DateTime @default(now())
+  
+  @@index([level, timestamp])
+  @@index([userId, timestamp])
+  @@index([deviceId, timestamp])
+  @@map("system_logs")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String
+  resource  String
+  resourceId String?
+  userId    String?
+  userName  String?
+  oldValues Json?
+  newValues Json?
+  ip        String?
+  userAgent String?
+  timestamp DateTime @default(now())
+  
+  @@index([action, timestamp])
+  @@index([userId, timestamp])
+  @@index([resource, resourceId])
+  @@map("audit_logs")
+}
+
+// Application Monitoring
+model Application {
+  id          String @id @default(cuid())
+  name        String
+  description String?
+  type        ApplicationType
+  url         String?
+  method      String @default("GET")
+  headers     Json?
+  body        String?
+  timeout     Int @default(30)
+  interval    Int @default(300)
+  enabled     Boolean @default(true)
+  
+  endpoints ApplicationEndpoint[]
+  checks    ApplicationCheck[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("applications")
+}
+
+model ApplicationEndpoint {
+  id            String @id @default(cuid())
+  applicationId String
+  name          String
+  path          String
+  method        String @default("GET")
+  expectedCode  Int @default(200)
+  expectedText  String?
+  timeout       Int @default(30)
+  
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  @@unique([applicationId, path, method])
+  @@map("application_endpoints")
+}
+
+model ApplicationCheck {
+  id            String @id @default(cuid())
+  applicationId String
+  status        ServiceStatus
+  responseTime  Float?
+  statusCode    Int?
+  error         String?
+  output        String?
+  timestamp     DateTime @default(now())
+  
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  
+  @@index([applicationId, timestamp])
+  @@map("application_checks")
+}
+
+// Performance Data Storage
+model PerformanceData {
+  id        String   @id @default(cuid())
+  deviceId  String?
+  portId    String?
+  sensorId  String?
+  metric    String
+  value     Float
+  timestamp DateTime @default(now())
+  tags      Json?
+  
+  @@index([deviceId, metric, timestamp])
+  @@index([portId, metric, timestamp])
+  @@index([sensorId, metric, timestamp])
+  @@map("performance_data")
+}
+
+// Additional Enums
+enum ProtocolType {
+  BGP
+  OSPF
+  ISIS
+  RIP
+  EIGRP
+  STP
+  RSTP
+  LLDP
+  CDP
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum LogLevel {
+  DEBUG
+  INFO
+  WARN
+  ERROR
+  FATAL
+}
+
+enum ApplicationType {
+  WEB
+  API
+  DATABASE
+  SERVICE
+  MICROSERVICE
 }

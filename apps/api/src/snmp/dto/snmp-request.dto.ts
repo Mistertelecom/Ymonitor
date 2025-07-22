@@ -130,12 +130,12 @@ export class SNMPConnectionDto {
 
   @ApiProperty({
     description: 'Transport protocol',
-    enum: ['udp', 'tcp'],
-    default: 'udp',
+    enum: ['udp4', 'udp6', 'tcp'],
+    default: 'udp4',
   })
-  @IsEnum(['udp', 'tcp'])
+  @IsEnum(['udp4', 'udp6', 'tcp'])
   @IsOptional()
-  transport: 'udp' | 'tcp' = 'udp';
+  transport: 'udp4' | 'udp6' | 'tcp' = 'udp4';
 }
 
 export class SNMPDeviceDto extends SNMPConnectionDto {

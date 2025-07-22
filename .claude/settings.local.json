@@ -43,7 +43,10 @@
       "Bash(lsof:*)",
       "Bash(mv:*)",
       "Bash(npx ts-node:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(touch:*)",
+      "Bash(docker-compose:*)",
+      "Bash(gnome-terminal:*)"
     ],
     "deny": []
   }

@@ -336,7 +336,7 @@ export class DiscoveryService implements IDiscoveryService {
       port: device.snmpPort || 161,
       timeout: device.snmpTimeout || 5000,
       retries: device.snmpRetries || 3,
-      transport: 'udp',
+      transport: 'udp4',
       version: device.snmpVersion as any,
       community: device.snmpCommunity,
       username: device.snmpUsername,

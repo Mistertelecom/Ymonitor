@@ -1,0 +1,72 @@
+# 🐳 Y Monitor Web Dockerfile
+# Multi-stage build for production optimization
+
+# Stage 1: Build Dependencies
+FROM node:18-alpine AS deps
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/web/package*.json ./apps/web/
+
+# Install dependencies (including dev dependencies for build)
+RUN npm ci --include=dev
+
+# Stage 2: Build Application
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Copy dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
+
+# Copy source code
+COPY . .
+
+# Build the application
+WORKDIR /app/apps/web
+RUN npm run build
+
+# Stage 3: Production Runtime
+FROM node:18-alpine AS runner
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+# Set working directory
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init curl
+
+# Copy package files and install production dependencies only
+COPY apps/web/package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Copy built application
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/public ./public
+
+# Copy Next.js config
+COPY --from=builder --chown=nextjs:nodejs /app/apps/web/next.config.js ./next.config.js
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:3005 || exit 1
+
+# Security: Run as non-root user
+USER nextjs
+
+# Expose port
+EXPOSE 3005
+
+# Environment variables
+ENV NODE_ENV=production
+ENV PORT=3005
+ENV HOSTNAME=0.0.0.0
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "server.js"]

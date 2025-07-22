@@ -20,7 +20,7 @@ export class DeviceSNMPService {
       community: 'Facil_SNMP_V1',
       timeout: 5000,
       retries: 3,
-      transport: 'udp',
+      transport: 'udp4',
     };
 
     this.logger.log('Testing connection to Ubiquiti device 10.248.8.26...');
@@ -125,7 +125,7 @@ export class DeviceSNMPService {
         community: device.snmpCommunity,
         timeout: device.snmpTimeout,
         retries: device.snmpRetries,
-        transport: 'udp',
+        transport: 'udp4',
       };
 
       // Test connection

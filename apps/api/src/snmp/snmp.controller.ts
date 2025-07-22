@@ -386,7 +386,7 @@ export class SNMPController {
       port: deviceDto.port || 161,
       timeout: deviceDto.timeout || 5000,
       retries: deviceDto.retries || 3,
-      transport: deviceDto.transport || 'udp',
+      transport: deviceDto.transport || 'udp4',
       version: deviceDto.credentials.version,
       community: deviceDto.credentials.community,
       username: deviceDto.credentials.username,

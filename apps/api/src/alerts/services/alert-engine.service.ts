@@ -447,7 +447,7 @@ export class AlertEngineService {
         port: device.snmpPort || 161,
         timeout: device.snmpTimeout || 5000,
         retries: device.snmpRetries || 3,
-        transport: 'udp' as const,
+        transport: 'udp4' as const,
         version: device.snmpVersion,
         community: device.snmpCommunity,
       };

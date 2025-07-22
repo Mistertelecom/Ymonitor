@@ -1,0 +1,70 @@
+# 🐳 Y Monitor API Dockerfile
+# Multi-stage build for production optimization
+
+# Stage 1: Build Dependencies
+FROM node:18-alpine AS deps
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/api/package*.json ./apps/api/
+
+# Install dependencies (including dev dependencies for build)
+RUN npm ci --include=dev
+
+# Stage 2: Build Application
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Copy dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/apps/api/node_modules ./apps/api/node_modules
+
+# Copy source code
+COPY . .
+
+# Generate Prisma client
+WORKDIR /app/apps/api
+RUN npx prisma generate
+
+# Build the application
+RUN npm run build
+
+# Stage 3: Production Runtime
+FROM node:18-alpine AS runner
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nestjs
+
+# Set working directory
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Copy package files and install production dependencies only
+COPY apps/api/package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Copy built application
+COPY --from=builder --chown=nestjs:nodejs /app/apps/api/dist ./dist
+COPY --from=builder --chown=nestjs:nodejs /app/apps/api/prisma ./prisma
+
+# Copy entrypoint script
+COPY --chown=nestjs:nodejs docker/api-entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:3006/health || exit 1
+
+# Security: Run as non-root user
+USER nestjs
+
+# Expose port
+EXPOSE 3006
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["./entrypoint.sh"]
